@@ -1,0 +1,25 @@
+.box_chat {
+    max-width: 768px;
+    min-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.control_input,
+.content_chat {
+    border: 1px solid #e1e1e1;
+    padding: 0.5em;
+}
+
+.content_chat ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content_chat ul li {
+    list-style: none;
+    width: 100%;
+}

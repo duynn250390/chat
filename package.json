@@ -1,0 +1,17 @@
+{
+    "name": "chat",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.15.2"
+    },
+    "devDependencies": {
+        "socket.io": "^2.3.0"
+    }
+}
