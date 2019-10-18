@@ -52,7 +52,5 @@ io.on('connection', function (socket) {
     socket.on('chat-mesage-to-client', function (data) {
         io.sockets.emit('chat-mesage-to-server-chat', { ten: socket.nickname, nd: data });
     });
-    console.log(socket.nickname)
-
 
 });
