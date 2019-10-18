@@ -50,11 +50,6 @@ io.on('connection', function(socket) {
         socket.broadcast.emit("server-send-mesage", { un: socket.Username, nd: data });
     });
 
-    // socket.on('chat-mesage-to-client', function(data) {
-    // var user_a = socket.Username;
-    // io.sockets.emit('chat-mesage-to-server-chat', { un: un, nd: data });
-    // });
-
     socket.on('now-typing-client', function() {
         var user_typing = socket.Username + " đang gõ chữ";
         socket.broadcast.emit('typing-action-now', user_typing);
@@ -63,6 +58,12 @@ io.on('connection', function(socket) {
     socket.on('out-typing-client', function() {
         socket.broadcast.emit('typing-action-out');
     });
+    // =====================CHATROOM================
+
+
+
+
+
 });
 
 app.get('/', function(req, res) {
@@ -70,4 +71,8 @@ app.get('/', function(req, res) {
 });
 app.get('/bai1', function(req, res) {
     res.render('bai1');
+});
+
+app.get('/chatroom', function(req, res) {
+    res.render('chatroom');
 });
