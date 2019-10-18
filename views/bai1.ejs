@@ -6,31 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <title>Chat</title>
+    <title>Bài 1 - Docket IO</title>
 </head>
 
 <body>
-    <div class="box_chat">
-        <div class="person_list">
-            <ul>
-                <li>dsd</li>
-            </ul>
-        </div>
-        <div class="box_conent_chat">
-            <div class="content_chat">
-                <ul id="messages"></ul>
+    <aside class="warrap">
+        <section class="regis_mem" id="regis_mem">
+            <div class="heading">Form register Chat</div>
+            <div class="form_regis">
+                <form action="" id="formID_regis">
+                    <input type="text" class="input_message" id="input_message" placeholder="Nhập họ tên.." />
+                    <button class="btn_regis">Đăng ký</button>
+                </form>
             </div>
-            <form action="">
-                <div class="control_input">
-                    <input class="mes" id="mes" autocomplete="of" />
-                    <button>Send</button>
+        </section>
+        <div class="box_chat">
+            <div class="person_list">
+                <div class="hello_mem">
+                    <form action="" class="hello_mem_form">
+                        <div class="name_hello">Xin chào <span>Nam</span></div>
+                        <button class="btn_logout">Đăng xuất</button>
+                    </form>
                 </div>
-            </form>
+                <ul id="list_mem">
+                    <li>Nam</li>
+                    <li>Quân</li>
+                </ul>
+            </div>
+            <div class="box_conent_chat">
+                <div class="content_chat">
+                    <ul id="messages"></ul>
+                </div>
+                <form action="">
+                    <div class="control_input">
+                        <input class="mes" id="mes" autocomplete="of" />
+                        <button>Send</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </aside>
 </body>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script src="js/jquery.js"></script>
-<script src="js/script.js"></script>
+<script src="js/handles.js"></script>
 
 </html>

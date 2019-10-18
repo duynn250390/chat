@@ -1,3 +1,9 @@
+.warrap {
+    width: 100%;
+    max-width: 768px;
+    min-width: 300px;
+    margin: 0 auto;
+}
 
 .box_chat {
     max-width: 768px;
@@ -80,6 +86,7 @@
 }
 
 .person_list ul li {
+    margin-bottom: 10px;
     list-style: none;
     display: flex;
     flex-direction: row;
@@ -100,4 +107,68 @@
     width: 24px;
     margin-right: 5px;
 }
+
 /* =============CSS BAI 1 ================ */
+.regis_mem {
+    background: #fff1ae;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #e1e1e1;
+}
+
+.regis_mem .heading {
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.regis_mem .form_regis {
+    display: flex;
+    flex-direction: row;
+    margin-top:10px;
+}
+
+.regis_mem .form_regis .input_message {
+    height: 40px;
+    padding: 0 5px;
+    max-width: 100%;
+    min-width: 300px;
+    outline: none;
+    border:1px solid #ccc;
+}
+
+.regis_mem .form_regis .btn_regis {
+    height: 40px;
+    border: none;
+    background: chocolate;
+    color: #fff;
+    padding: 0 15px;
+    cursor: pointer;
+    outline: none;
+}
+.regis_mem .form_regis .btn_regis:hover,
+.regis_mem .form_regis .btn_regis:focus {
+    background: palevioletred;
+}
+.hello_mem_form{
+    display: flex;
+    flex-direction: column;
+}
+.hello_mem_form .name_hello{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.hello_mem_form .btn_logout{
+    height: 40px;
+    cursor: pointer;
+    border:1px solid #ccc;
+    outline: none;
+    font-weight: 600;
+}
+#input_message.error{
+    border:1px solid red;
+}

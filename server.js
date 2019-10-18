@@ -7,8 +7,8 @@ var port = process.env.PORT || 3000;
 server.listen(port);
 
 app.use(express.static("public"));
-app.set("view engine","ejs");
-app.set("views","./views");
+app.set("view engine", "ejs");
+app.set("views", "./views");
 
 
 app.get('/', function (req, res) {
@@ -17,11 +17,7 @@ app.get('/', function (req, res) {
 app.get('/bai1', function (req, res) {
     res.render('bai1');
 });
-// app.get('/views/bai1', function (req, res) {
-//     res.render('bai1');
-//     // res.sendFile(__dirname + '/bai1.html');
-// });
-
+var danhsachUsers = [];
 
 io.on('connection', function (socket) {
     console.log('Có một kết nối:' + socket.id);
@@ -34,4 +30,18 @@ io.on('connection', function (socket) {
         // socket.broadcast.emit('chat-mesage-to-server', data);// Chat đến người khác nhưng không gửi về mình
         io.sockets.emit('chat-mesage-to-server', data);
     });
+    socket.on('client-regis-username', function (data) {
+        if (danhsachUsers.indexOf(data) >= 0) {
+            socket.emit('regis-user-that-bai');
+        } else {
+            // SUSSCES
+            danhsachUsers.push(data);
+            socket.Username = data;
+            socket.emit('regis-user-thanh-cong', data);
+        }
+    });
+
+
+
+
 });
