@@ -100,7 +100,7 @@
 .person_list ul li:before {
     content: '';
     display: block;
-    background-image: url('img/connect.png');
+    background-image: url('/public/img/connect.png');
     border-radius: 100%;
     background: #ccc;
     height: 24px;
@@ -108,7 +108,9 @@
     margin-right: 5px;
 }
 
+
 /* =============CSS BAI 1 ================ */
+
 .regis_mem {
     background: #fff1ae;
     padding: 5px;
@@ -128,7 +130,7 @@
 .regis_mem .form_regis {
     display: flex;
     flex-direction: row;
-    margin-top:10px;
+    margin-top: 10px;
 }
 
 .regis_mem .form_regis .input_message {
@@ -137,7 +139,7 @@
     max-width: 100%;
     min-width: 300px;
     outline: none;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
 }
 
 .regis_mem .form_regis .btn_regis {
@@ -149,26 +151,31 @@
     cursor: pointer;
     outline: none;
 }
+
 .regis_mem .form_regis .btn_regis:hover,
 .regis_mem .form_regis .btn_regis:focus {
     background: palevioletred;
 }
-.hello_mem_form{
+
+.hello_mem_form {
     display: flex;
     flex-direction: column;
 }
-.hello_mem_form .name_hello{
+
+.hello_mem_form .name_hello {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.hello_mem_form .btn_logout{
+
+.hello_mem_form .btn_logout {
     height: 40px;
     cursor: pointer;
-    border:1px solid #ccc;
+    border: 1px solid #ccc;
     outline: none;
     font-weight: 600;
 }
-#input_message.error{
-    border:1px solid red;
+
+#input_message.error {
+    border: 1px solid red;
 }
