@@ -47,12 +47,8 @@
     padding: 5px;
 }
 
-.content_chat ul li:nth-child(2n) {
-    background: #fbfbfb;
-}
-
 .control_input .mes {
-    width: calc(100% - 60px);
+    width: calc(100% - 0);
     border: none;
     outline: none;
     padding: 0 0.5em;
@@ -72,7 +68,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
 }
 
 .person_list {
@@ -178,4 +174,74 @@
 
 #input_message.error {
     border: 1px solid red;
+}
+
+.typing_now {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 24px;
+    justify-content: flex-start;
+}
+
+.now-typing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-style: italic;
+    color: #bdbdbd;
+}
+
+.now-typing::before {
+    content: '';
+    display: block;
+    background-image: url('../img/typing.gif');
+    height: 20px;
+    width: 20px;
+    background-position: center;
+    background-size: 100%;
+}
+
+#messages .me {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: left;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#messages .me .noidung {
+    color: #fff;
+    text-align: right;
+    max-width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 10px;
+    background: #4196ff;
+}
+
+#messages .you {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: right;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#messages .you .noidung {
+    background: #f7f7f7;
+    color: #333;
+    text-align: right;
+    max-width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.mes {
+    width: 100%;
+    height: 100%;
 }

@@ -12,45 +12,62 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
-
-app.get('/', function (req, res) {
-    res.render('trangchu');
-});
-app.get('/bai1', function (req, res) {
-    res.render('bai1');
-});
 var danhsachUsers = [];
-var listUser= {};
-io.on('connection', function (socket) {
-    // console.log('Có một kết nối:' + socket.id);
-    socket.on('disconnect', function () {
-        console.log(socket.id + 'đã ngắt kết nối');
+var listUser = {};
+io.on('connection', function(socket) {
+    console.log('Có một kết nối:' + socket.id);
+    socket.on('disconnect', function() {
+        // console.log(socket.id + 'đã ngắt kết nối');
     });
-    socket.on('client-regis-username', function (data) {
+
+    socket.on('client-regis-username', function(data) {
         if (danhsachUsers.indexOf(data) >= 0) {
             socket.emit('regis-user-that-bai');
         } else {
-           
             danhsachUsers.push(data);
-            // danhsachUsers[socket.id].username = data;
-            // socket.Username = data;
-            socket.nickname = data;
-            // listUser.Usernames = danhsachUsers;
-            // listUser.currentUser = data;
-            // socket.Gender = 'Nam';
-            // console.log(listUser);
-            
+            socket.Username = data;
             socket.emit('regis-user-thanh-cong', data);
             io.sockets.emit('update-list-users', danhsachUsers);
         }
     });
-    socket.on('client-logout', function () {
-        danhsachUsers.splice(danhsachUsers.indexOf(socket.Username), 1);
+
+    socket.on('client-logout', function() {
+        danhsachUsers.splice(
+            danhsachUsers.indexOf(socket.Username), 1
+        );
         socket.broadcast.emit('update-list-users', danhsachUsers);
         socket.emit('client-logout-thanh-cong');
     });
-    socket.on('chat-mesage-to-client', function (data) {
-        io.sockets.emit('chat-mesage-to-server-chat', { ten: socket.nickname, nd: data });
+
+    socket.on('send-message-to-client', function(data) {
+        console.log(socket.Username, 'Username');
+        console.log(data, 'Message');
+
     });
 
+    socket.on('client-send-message', function(data) {
+        socket.emit("server-send-mesage-to-me", { nd: data });
+        socket.broadcast.emit("server-send-mesage", { un: socket.Username, nd: data });
+    });
+
+    // socket.on('chat-mesage-to-client', function(data) {
+    // var user_a = socket.Username;
+    // io.sockets.emit('chat-mesage-to-server-chat', { un: un, nd: data });
+    // });
+
+    socket.on('now-typing-client', function() {
+        var user_typing = socket.Username + " đang gõ chữ";
+        socket.broadcast.emit('typing-action-now', user_typing);
+    });
+
+    socket.on('out-typing-client', function() {
+        socket.broadcast.emit('typing-action-out');
+    });
+});
+
+app.get('/', function(req, res) {
+    res.render('trangchu');
+});
+app.get('/bai1', function(req, res) {
+    res.render('bai1');
 });
