@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io('https://chasoc.herokuapp.com');
 
 socket.on('server-send-mesage', function(data) {
     $('#messages').append("<li  class='you'><div class='name'>" + data.un + "</div><div class='noidung'>" + data.nd + "</div></li>");
