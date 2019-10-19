@@ -1,7 +1,7 @@
 var socket = io();
 
 socket.on('server-send-mesage', function(data) {
-    $('#messages').append("<li  class='you'><div class=''>" + data.un + "</div><div class='noidung'>" + data.nd + "</div></li>");
+    $('#messages').append("<li  class='you'><div class='name'>" + data.un + "</div><div class='noidung'>" + data.nd + "</div></li>");
 });
 socket.on('server-send-mesage-to-me', function(data) {
     $('#messages').append("<li class='me'><div class='noidung'>" + data.nd + "</div></li>");

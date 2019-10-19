@@ -232,6 +232,11 @@
     border-radius: 10px;
 }
 
+#messages .you .name {
+    font-size: 8px;
+    color: #333;
+}
+
 #messages .you .noidung {
     background: #f7f7f7;
     color: #333;
