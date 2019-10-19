@@ -13,6 +13,7 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 var danhsachUsers = [];
+var danhsachUsersROOM = [];
 var listUser = {};
 io.on('connection', function(socket) {
     console.log('Có một kết nối:' + socket.id);
@@ -59,10 +60,60 @@ io.on('connection', function(socket) {
         socket.broadcast.emit('typing-action-out');
     });
     // =====================CHATROOM================
+    socket.on('client-dang-ky-mem', function(data) {
 
+        if (danhsachUsersROOM.indexOf(data) >= 0) {
+            socket.emit('dang-ky-that-bai');
+        } else {
+            danhsachUsersROOM.push(data);
+            socket.username = data;
 
+            socket.emit('server-dang-ky-thanh-cong', data);
+            io.sockets.emit('cap-nhat-danh-sach-user', danhsachUsersROOM);
 
+            var mangRoom = [];
+            for (r in socket.adapter.rooms) {
+                mangRoom.push(r);
+            }
+            io.sockets.emit('cap-nhat-danh-sach-phong', mangRoom);
 
+        }
+    });
+
+    socket.on('client-logout', function() {
+        danhsachUsersROOM.splice(
+            danhsachUsersROOM.indexOf(socket.Username), 1
+        );
+
+        socket.broadcast.emit('cap-nhat-danh-sach-user', danhsachUsersROOM);
+        socket.emit('client-logout-thanh-cong');
+
+        var mangRoom = [];
+        for (r in socket.adapter.rooms) {
+            mangRoom.push(r);
+        }
+        io.sockets.emit('cap-nhat-danh-sach-phong', mangRoom);
+    });
+
+    socket.on('typing-client', function() {
+        var typing_now = "<span class='name'>" + socket.username + "</span>đang nhập ...";
+        socket.broadcast.emit('server-typing', typing_now)
+    });
+
+    socket.on('out-typing-client', function() {
+        socket.broadcast.emit('server-typing-out')
+    });
+
+    socket.on('su-kien-tao-room', function(data) {
+        socket.join(data);
+        socket.phong = data;
+        console.log(socket.adapter.rooms);
+        var mangRoom = [];
+        for (r in socket.adapter.rooms) {
+            mangRoom.push(r);
+        }
+        io.sockets.emit('cap-nhat-danh-sach-phong', mangRoom);
+    });
 
 });
 

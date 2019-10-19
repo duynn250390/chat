@@ -4,3 +4,256 @@
     min-width: 300px;
     margin: 0 auto;
 }
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.warrap.room {
+    /* background: #e1e1e1; */
+    border: 1px solid #ccc;
+}
+
+.chatroom {}
+
+.chatroom .heading {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    padding: 1em 0;
+    background: #1e97ff;
+}
+
+.control_box_room {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.room_head_control {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    align-items: center;
+}
+
+.room_head_control .txt_hello {}
+
+.room_head_control .logout {
+    color: #fff;
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    background: #2f7b78;
+    cursor: pointer;
+}
+
+.btn_regis {
+    height: 40px;
+    width: 140px;
+    border: none;
+    outline: none;
+    background: #2f7b78;
+    cursor: pointer;
+    color: #fff;
+}
+
+.control_input {
+    max-width: calc(100% - 150px);
+    width: 100%;
+    height: 40px;
+    outline: none;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+}
+
+.clearfix:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+.box_chat_room {
+    display: flex;
+    flex-direction: row;
+}
+
+.box_chat_room .room_float {
+    min-height: 300px;
+    overflow-x: hidden;
+}
+
+.list_mem {
+    width: 150px;
+    padding: 5px;
+}
+
+.list_mem ul.list_mem_ul {
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 5px;
+}
+
+.list_mem ul.list_mem_ul li {
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list_mem ul.list_mem_ul li:before {
+    content: '';
+    display: block;
+    background-image: url('../img/connect.png');
+    height: 24px;
+    width: 24px;
+    margin-right: 5px;
+}
+
+.list_mem ul.list_mem_ul li:last-child {
+    border-bottom: none;
+}
+
+.list_room ul.list_room_ul {
+    border: 1px solid #ccc;
+    margin: 0;
+    padding: 5px;
+}
+
+.list_room ul.list_room_ul li {
+    list-style: none;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list_room ul.list_room_ul li:before {
+    content: '';
+    display: block;
+    background-image: url('../img/team.png');
+    height: 24px;
+    width: 24px;
+    margin-right: 5px;
+}
+
+.list_room {
+    width: 240px;
+    padding: 5px;
+}
+
+.room_chat {
+    width: calc(100% - 430px);
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.room_chat .content_chat {
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 5px;
+    min-height: 200px;
+}
+
+.room_chat .content_message {
+    display: flex;
+    flex-direction: column;
+}
+
+.room_chat .content_message .txt_message {
+    height: 40px;
+    outline: none;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+}
+
+.typing_now {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+}
+
+.typing_now .name {
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.name::before {
+    content: '';
+    display: block;
+    background-image: url('../img/typing.gif');
+    height: 20px;
+    width: 20px;
+    background-position: center;
+    background-size: 100%;
+}
+
+.validation {
+    font-size: 10px;
+    font-style: italic;
+    color: red;
+    width: 100%;
+}
+
+#messages .me {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: left;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#messages .me .noidung {
+    color: #fff;
+    text-align: right;
+    max-width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 10px;
+    background: #4196ff;
+}
+
+#messages .you {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: right;
+    max-width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#messages .you .name {
+    font-size: 8px;
+    color: #333;
+}
+
+#messages .you .noidung {
+    background: #f7f7f7;
+    color: #333;
+    text-align: right;
+    max-width: calc(100% - 60px);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.mes {
+    width: 100%;
+    height: 100%;
+}
