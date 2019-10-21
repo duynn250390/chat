@@ -2,9 +2,9 @@
     "name": "chat",
     "version": "1.0.0",
     "description": "",
-    "main": "script.js",
+    "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "npm i"
     },
     "author": "",
     "license": "ISC",
