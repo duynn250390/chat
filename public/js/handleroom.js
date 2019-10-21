@@ -1,4 +1,5 @@
-var socket = io('https://chasoc.herokuapp.com');
+var HTTP = '';
+var socket = io(HTTP);
 
 socket.on('server-dang-ky-thanh-cong', function(data) {
     $('.form_regis_mem').html("<span class='txt_hello'>Chào bạn <b>" + data + "</b></span><span class='logout' id='logout'>Thoát</span>");
