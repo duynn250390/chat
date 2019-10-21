@@ -2,19 +2,20 @@
 // socket.broadcast.emit('chat-mesage-to-server', data);// Chat đến người khác nhưng không gửi về mình
 var express = require('express');
 var app = express();
-
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
 // var port = process.env.PORT || 3000;
-server.listen(process.env.PORT || 3000);
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
+server.listen(process.env.PORT || 3000);
+
 var danhsachUsers = [];
 var danhsachUsersROOM = [];
 var listUser = {};
+
 io.on('connection', function(socket) {
     console.log('Có một kết nối:' + socket.id);
     socket.on('disconnect', function() {
