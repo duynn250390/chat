@@ -3,10 +3,10 @@
 var express = require('express');
 var app = express();
 
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var port = process.env.PORT || 3000;
-server.listen(port);
+var server = require('http').createServer(app);
+var io = require('socket.io').listen(server);
+// var port = process.env.PORT || 3000;
+server.listen(process.env.PORT || 3000);
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
