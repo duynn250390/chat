@@ -1,5 +1,5 @@
 var HTTP = "https://choicho.herokuapp.com/";
-var socket = io(HTTP);
+var socket = io("https://choicho.herokuapp.com");
 
 socket.on('server-send-mesage', function(data) {
     $('#messages').append("<li  class='you'><div class='name'>" + data.un + "</div><div class='noidung'>" + data.nd + "</div></li>");

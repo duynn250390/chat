@@ -1,5 +1,5 @@
 var HTTP = "https://choicho.herokuapp.com/";
-var socket = io(HTTP);
+var socket = io('https://choicho.herokuapp.com');
 
 socket.on('server-dang-ky-thanh-cong', function(data) {
     $('.form_regis_mem').html("<span class='txt_hello'>Chào bạn <b>" + data + "</b></span><span class='logout' id='logout'>Thoát</span>");
