@@ -1,4 +1,4 @@
-var HTTP = '';
+var HTTP = 'https://choicho.herokuapp.com/';
 var socket = io(HTTP);
 
 socket.on('server-send-mesage', function(data) {
